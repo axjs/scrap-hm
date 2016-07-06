@@ -55,7 +55,7 @@ function run(db) {
       			var res = {
         			name: $el.find('a').text(), 
         			oldPrice: $el.find('small').text(), 
-        			price: $el.find('.product-item-price').text().trim().spit('\n')[0], 
+        			price: $el.find('.product-item-price').text().trim().split('\n')[0], 
         			image: $el.find('img').attr('data-image')
       			} 
       			updateRow(db, JSON.stringify(res));
