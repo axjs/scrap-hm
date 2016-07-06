@@ -1,0 +1,12 @@
+{
+  "urls" :[
+    {
+      "name" : "HM.com/SALE /Kids/View all",
+      "url" : "http://www2.hm.com/en_gb/sale/kids/viewall.html?product-type=kids_all&sort=stock&offset=0&page-size=10"
+    },
+    {
+      "name" : "HM.com/SALE /Men/View all",
+      "url" : "http://www2.hm.com/en_gb/sale/men/viewall.html?product-type=men_all&sort=stock&offset=0&page-size=10"
+    }
+  ]
+}
