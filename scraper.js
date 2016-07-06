@@ -2,6 +2,7 @@
 
 var cheerio = require("cheerio");
 var request = require("request");
+var tress = require('tress');
 var sqlite3 = require("sqlite3").verbose();
 
 function initDatabase(callback) {
