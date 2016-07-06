@@ -58,7 +58,7 @@ function run(db) {
         			price: $el.find('.product-item-price').text().trim().split('\n')[0], 
         			image: $el.find('img').attr('data-image')
       			} 
-      			updateRow(db, JSON.stringify(res));
+      			updateRow(db, JSON.stringify(res, 0 ,2));
       			return res
 		})
 		
