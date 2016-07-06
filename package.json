@@ -3,6 +3,7 @@
 		"cheerio": "latest",
 		"request": "latest",
 		"tress":   "latest",
+		"needle":   "latest",
 		"sqlite3": "latest"
 	}
 }
