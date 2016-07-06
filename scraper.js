@@ -41,11 +41,11 @@ function fetchPage(url, callback) {
 
 function run(db) {
 	// Use request to read in pages.
-	fetchPage("https://morph.io", function (body) {
+	fetchPage("http://www2.hm.com/en_gb/sale/kids/viewall.html", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
 
-		var elements = $("div.media-body span.p-name").each(function () {
+		var elements = $("div.product-item h3.product-item-headline a").each(function () {
 			var value = $(this).text().trim();
 			updateRow(db, value);
 		});
