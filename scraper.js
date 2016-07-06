@@ -16,10 +16,11 @@ var q = tress(function(job, done){
     });
 }, 2);
 
+var db
 
 function initDatabase(callback) {
 	// Set up sqlite database.
-	var db = new sqlite3.Database("data.sqlite");
+	db = new sqlite3.Database("data.sqlite");
 	db.serialize(function() {
 		db.run("CREATE TABLE IF NOT EXISTS data (name TEXT)");
 		db.run("delete from data");
