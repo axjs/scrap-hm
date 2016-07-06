@@ -50,7 +50,7 @@ function run(db) {
 		//	var value = $(this).text().trim();
 		//	updateRow(db, value);
 		//});
-		var cat = $('nav.breadcrumbs ul').text().replace(/(\n|\t)+/g, ' ').trim()
+		var cat = $('nav.breadcrumbs ul').text().replace(/(\n|\t)+/g, '/').trim()
 		var data = $("article.product-item").map(function(indx, el){
       			var $el = $(el)
       			var res = {
