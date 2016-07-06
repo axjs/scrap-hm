@@ -9,6 +9,7 @@ function initDatabase(callback) {
 	var db = new sqlite3.Database("data.sqlite");
 	db.serialize(function() {
 		db.run("CREATE TABLE IF NOT EXISTS data (name TEXT)");
+		db.run("truncate data");
 		callback(db);
 	});
 }
@@ -45,11 +46,22 @@ function run(db) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
 
-		var elements = $("article.product-item h3.product-item-headline a").each(function () {
-			var value = $(this).text().trim();
-			updateRow(db, value);
-		});
-
+		//var elements = $("article.product-item h3.product-item-headline a").each(function () {
+		//	var value = $(this).text().trim();
+		//	updateRow(db, value);
+		//});
+		var data = $("article.product-item").map(function(indx, el){
+      			var $el = $(el)
+      			var res = {
+        			name: $el.find('a').text(), 
+        			oldPrice: $el.find('small').text(), 
+        			price: $el.find('.product-item-price').text().trim(), 
+        			image: $el.find('img').attr('data-image')
+      			} 
+      			updateRow(db, JSON.stringify(res));
+      			return res
+		})
+		
 		readRows(db);
 
 		db.close();
