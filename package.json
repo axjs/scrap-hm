@@ -2,6 +2,7 @@
 	"dependencies": {
 		"cheerio": "latest",
 		"request": "latest",
+		"tress":   "latest",
 		"sqlite3": "latest"
 	}
 }
