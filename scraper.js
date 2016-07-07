@@ -76,8 +76,8 @@ function processPage(body) {
     var res = {
       cat: cat,
       name: $el.find('a').text(),
-      priceOld: $el.find('small').text().substing(1),
-      price: $el.find('.product-item-price').text().trim().split('\n')[0].substing(1),
+      priceOld: $el.find('small').text().substring(1),
+      price: $el.find('.product-item-price').text().trim().split('\n')[0].substring(1),
       image: $el.find('img').attr('data-image'),
       imageAlt: $el.find('img').attr('data-altimage'),
       url: $el.find('a').attr('href'), 
