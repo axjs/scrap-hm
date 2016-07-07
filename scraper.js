@@ -78,7 +78,9 @@ function processPage(body) {
       name: $el.find('a').text(),
       oldPrice: $el.find('small').text(),
       price: $el.find('.product-item-price').text().trim().split('\n')[0],
-      image: $el.find('img').attr('data-image')
+      image: $el.find('img').attr('data-image'),
+      imageAlt: $el.find('img').attr('data-altimage'),
+      url: $el.find('a').attr('href')
     }
     updateRow(db, JSON.stringify(res, 0, 2));
     return res
