@@ -76,11 +76,15 @@ function processPage(body) {
     var res = {
       cat: cat,
       name: $el.find('a').text(),
-      oldPrice: $el.find('small').text(),
-      price: $el.find('.product-item-price').text().trim().split('\n')[0],
+      priceOld: $el.find('small').text().substing(1),
+      price: $el.find('.product-item-price').text().trim().split('\n')[0].substing(1),
       image: $el.find('img').attr('data-image'),
       imageAlt: $el.find('img').attr('data-altimage'),
-      url: $el.find('a').attr('href')
+      url: $el.find('a').attr('href'), 
+      percent : 0
+    }
+    if (+res.price && +res.priceOld) {
+      res.percent = (+res.price/+res.priceOld*100).toFixed(0)
     }
     updateRow(db, JSON.stringify(res, 0, 2));
     return res
