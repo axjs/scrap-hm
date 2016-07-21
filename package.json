@@ -1,4 +1,10 @@
 {
+ "name": "scrap-hm",
+  "description": "scrap-hm",
+  "version": "0.1.0",	
+	"engines": {
+    "node": "4.4.7"
+  }
 	"dependencies": {
 		"cheerio": "latest",
 		"request": "latest",
