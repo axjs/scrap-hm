@@ -88,7 +88,7 @@ function processPage(body) {
       percent : 0
     }
     if (+res.price && +res.priceOld) {
-      res.percent = (+res.price/+res.priceOld*100).toFixed(0)
+      res.percent = (100-+res.price/+res.priceOld*100).toFixed(0)
     }
     updateRow(res);
     return res
