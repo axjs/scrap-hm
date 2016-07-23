@@ -52,18 +52,22 @@ function fetchPage(url, cb) {
   });
 }
 
-function updateRow(db, value) {
-  // Insert some data.
-  var statement = db.prepare("INSERT INTO data VALUES (?)");
-  statement.run(value);
-  statement.finalize();
-}
-
 function readRows(db) {
   // Read some data.
-  db.each("SELECT rowid AS id, name FROM data", function(err, row) {
-    console.log(row.id + ": " + row.name);
+  //db.each("SELECT rowid AS id, name FROM data", function(err, row) {
+  //  console.log(row.id + ": " + row.name);
+  //});
+  db.each("SELECT count(*) AS c FROM data", function(err, row) {
+    console.log( "Database count: " + row.c);
   });
+}
+
+function updateRow(value) {
+  var json = JSON.stringify(value, 0, 2)
+  // Insert some data.
+  var statement = db.prepare("INSERT INTO data VALUES (?)");
+  statement.run(json);
+  statement.finalize();
 }
 
 function processPage(body) {
@@ -86,7 +90,7 @@ function processPage(body) {
     if (+res.price && +res.priceOld) {
       res.percent = (+res.price/+res.priceOld*100).toFixed(0)
     }
-    updateRow(db, JSON.stringify(res, 0, 2));
+    updateRow(res);
     return res
   })
 }
